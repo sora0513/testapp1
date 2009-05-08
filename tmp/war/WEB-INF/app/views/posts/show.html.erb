@@ -1,0 +1,20 @@
+<div>
+  <h2><%= link_to_unless_current h(@post.title), post_path(@post.key) %></h2>
+  <%= simple_format h(@post.body) %>
+</div>
+
+<p>
+  <%= link_to 'See All Posts', posts_path %>
+</p>
+
+<h2>Comments</h2>
+<div id="comments">
+  <%= render :partial => 'comments/comment', :object => @comments %>
+</div>
+
+<% form_tag :controller => 'comments', :action => 'create' do %>
+  <%= hidden_field_tag 'post_id', @post.key %>
+  <%= label_tag 'New Comment' %><br />
+  <%= text_area_tag 'body', '' %><br />
+  <%= submit_tag 'Add Comment' %>
+<% end %>

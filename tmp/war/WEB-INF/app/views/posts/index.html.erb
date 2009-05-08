@@ -1,0 +1,10 @@
+<h1>Listing posts</h1>
+
+<% @posts.each do |post| %>
+  <div>
+    <h2><%= link_to_unless_current h(post.title), post_path(post.key) %></h2>
+    <%= simple_format h(post.body) %>
+  </div>
+<% end %>
+
+<%= link_to 'New post', new_post_path %>

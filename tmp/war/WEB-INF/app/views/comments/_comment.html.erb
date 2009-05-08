@@ -1,0 +1,8 @@
+<% @comments.each do |comment| %>
+  <div>
+    <p>
+     <strong>Posted <%= comment.created_at %></strong><br />
+     <%= h(comment.body) %>
+    </p>
+  </div>
+<% end %>
